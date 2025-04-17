@@ -7,31 +7,23 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `portfolio-sidebar-theme`
+ * `portfolio-page`
  * 
  * @demo index.html
- * @element portfolio-sidebar-theme
+ * @element portfolio-page
  */
-export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "portfolio-sidebar-theme";
+    return "portfolio-sidebar";
   }
 
   // Functionality for the scroll is NOT within the pages or screen itself, logic has to be 
   // handled elsewhere (in THIS wrapper)
 
   //THIS COMPONENT IS ACTING AS A WRAPPER, should contain every other web component
-  // component: screens
-  // component: sidebar
-  // component: scroll to the top button? (footer)
-  // component: this wrapper
   // component: screen wrappers (just to determine spacing/consistency)
-  // MAIN reason for wrapper element: the logic for jumping through the page is in THIS wrapper,
-  // probably little actual design here (Sidebar may live here?) primarily just a <slot> tag
-  // Maybe a component for the sidebar?
-
-  //hax-the-club - for screen component/component layouts and scroll behavior
+  // Main purpose of this component = sizing and consistency
 
   //
   
@@ -65,14 +57,23 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
+
+      .wrapper
+      {
+        max-width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
+    
     `];
   }
 
-  // Lit render the HTML
+
   render() {
     return html`
       <div class="wrapper">
-        <slot></slot>
       </div>`;
   }
 
@@ -85,4 +86,4 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(PortfolioSidebarTheme.tag, PortfolioSidebarTheme);
+globalThis.customElements.define(PortfolioSidebar.tag, PortfolioSidebar);
