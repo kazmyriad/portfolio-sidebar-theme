@@ -66,6 +66,15 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
+      // LOGIC TO BE HANDLED BY WRAPPER: array list through elements to form links
+      // "Bubble" info up to wrapper, let the wrapper then make the array list
+      // EVENT LISTENER - a firstUpdated to bubble info up when a page is loaded. The screens DO NOT KNOW ABOUT ANYTHING
+      // NOT WITHIN THEMSELVES, SO YOU HAVE TO PASS THE INFORMATION UPWARDS (to parent elements)
+      // Q: How to pass info up to sidebar? It's at the same height as the portfolio pages - should I pass the eventListener
+      // info to the portfolio-sidebar-theme, then back down? Can I do that? Feels very jumpy
+      
+
+      // OR within the main wrapper, listen for when a page is added?
     
     `];
   }
@@ -74,6 +83,9 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="wrapper">
+        <div class ="links">
+          <a></a>
+        </div>
       </div>`;
   }
 

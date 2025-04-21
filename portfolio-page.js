@@ -29,6 +29,8 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
   
   constructor() {
     super();
+    this.title="";
+    this.breakpoint="";
    
     this.registerLocalization({
       context: this,

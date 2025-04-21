@@ -28,8 +28,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   // component: this wrapper
   // component: screen wrappers (just to determine spacing/consistency)
   // MAIN reason for wrapper element: the logic for jumping through the page is in THIS wrapper,
-  // probably little actual design here (Sidebar may live here?) primarily just a <slot> tag
-  // Maybe a component for the sidebar?
+  // little actual design here (Sidebar may live here?) primarily just a <slot> tag
 
   //hax-the-club - for screen component/component layouts and scroll behavior
 
