@@ -60,9 +60,12 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
 
       .wrapper
       {
-        max-width: 100%;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        width: 300px;
+        height: 100vh;
+        top: 0;
+        overflow-x: hidden;
+        background-color: blue;
+        display: flex;
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
@@ -84,7 +87,9 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
     return html`
       <div class="wrapper">
         <div class ="links">
-          <a></a>
+         
+          <!-- This is where the auto population of links happens dummy -->
+           <slot></slot>
         </div>
       </div>`;
   }

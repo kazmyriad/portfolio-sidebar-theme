@@ -54,17 +54,17 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
+        width: 100%;
+        margin: 20px;
+        
       }
 
       .wrapper
       {
-        max-width: 100%;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        width: 100%;
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
