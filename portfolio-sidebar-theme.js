@@ -4,15 +4,14 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-
+import './portfolio-sidebar.js';
 /**
  * `portfolio-sidebar-theme`
  * 
  * @demo index.html
  * @element portfolio-sidebar-theme
  */
-export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
 
   static get tag() {
     return "portfolio-sidebar-theme";
@@ -36,21 +35,14 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   
   constructor() {
     super();
-   
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/portfolio-sidebar-theme.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.pages = [];
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      pages: { type: Array }
     };
   }
 
@@ -59,16 +51,26 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-       
         height: 100vh;
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        
       }
 
-      .wrapper{
-        display: inline-flex;
-        height: 100vh;
+      portfolio-sidebar {
+        display: block;
+        width: 310px;
+        position: fixed;
+        top: 0;
+        bottom:0;
+        left: 0;
+        color: var(--portfolio-sidebar-color, white);
+      }
+      .wrapper {
+        margin-left: 310px;
+      }
+      a {
+        color: white;
+        font-size: var(--ddd-font-size-m);
       }
 
       /* is not resizing when child content is growing */
@@ -78,33 +80,33 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <div class="wrapper">
-        <slot></slot>
-      </div>`;
+    <portfolio-sidebar>
+      <ul>
+        ${this.pages.map((page, index) => html`<li><a href="#${page.number}" @click="${this.linkChange}" data-index="${index}">${page.title}</a></li>`)}
+      </ul>
+    </portfolio-sidebar>
+    <div class="wrapper" @page-added="${this.addPage}">
+      <slot></slot>
+    </div>`;
   }
 
-  // Listening for a new page
-  // firstUpdated(){
-  //   this.shadowRoot.addEventListener('page-added', (e) =>{
-  //   })
-  // }
-  // firstUpdated vs connectedCallback?
-
-  connectedCallback(){
-    super.connectedCallback();
-    this.shadowRoot.addEventListener('new-page', (e) =>{
-
-    })
-
+  linkChange(e) {
+    let number = parseInt(e.target.getAttribute('data-index'));
+    if (number >= 0) {
+      this.pages[number].element.scrollIntoView();
+    }
   }
 
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+  addPage(e) {
+    const element = e.detail.value
+    const page = {
+      number: element.pagenumber,
+      title: element.title,
+      element: element,
+    }
+    this.pages = [...this.pages, page];
   }
+
 }
 
 globalThis.customElements.define(PortfolioSidebarTheme.tag, PortfolioSidebarTheme);
