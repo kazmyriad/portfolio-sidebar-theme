@@ -12,6 +12,19 @@
       margin: var(--ddd-spacing-0);
       padding: var(--ddd-spacing-0);
     }
+    
+    h1
+      {
+       text-align: right;
+        color: rgb(204, 204, 253);
+        background-color: rgb(84, 43, 122);
+        padding-right: 50px;
+      
+      }  
+      .welcome{
+        font-size:100px;
+        text-align: center;
+      }  
    
   </style>
   
@@ -21,35 +34,47 @@
 <script type="module" src="portfolio-page.js"></script>
 <script type="module" src="portfolio-sidebar-theme.js"></script>
 <script type="module" src="portfolio-sidebar.js"></script>
+<script type="module" src="portfolio-page-wrapper.js"></script>
 
 <body>
   <portfolio-sidebar-theme>
-  <portfolio-sidebar>
-  </portfolio-sidebar>
+  <portfolio-sidebar></portfolio-sidebar>
+
+   <portfolio-page-wrapper>
+    <portfolio-page>
+      <div class="wrapper">
+        <p class="welcome">Welcome!</p>
+      </div>
+    </portfolio-page>
+    <portfolio-page>
+      <div class="wrapper" title="About Me" breakpoint="1">
+        <h1 class="fs-4xl m-0">Hello!</h1>
+        <p>My name is Alyssa and I'm a Human Centered Design and Development major. I will backflip off your windshield.</p>
+        
+      </div>
+    </portfolio-page>
 
     <portfolio-page>
-      <div class="wrapper" breakpoint="1">
+      <div class="wrapper" title="Projects" breakpoint="2">
+        <h1 class="fs-4xl m-0">Projects</h1>
         <p>jdkfsdkfjsdfksdfsdkfj</p>
       </div>
     </portfolio-page>
 
     <portfolio-page>
-      <div class="wrapper" breakpoint="2">
-        <p>jdkfsdkfjsdfksdfsdkfj</p>
-      </div>
-    </portfolio-page>
-
-    <portfolio-page>
-      <div class="wrapper" breakpoint="3">
+      <div class="wrapper" title="Artworks" breakpoint="3">
+        <h1 class="fs-4xl m-0">My Art</h1>
         <p>jdkfsdkfjsdfksdfsdkfj</p>
       </div>
     </portfolio-page>
 
     <portfolio-page>
       <div class="wrapper">
+        <h1 class="fs-4xl m-0">Hello!</h1>
         <p>jdkfsdkfjsdfksdfsdkfj</p>
       </div>
     </portfolio-page>
+   </portfolio-page-wrapper>
 
   </portfolio-sidebar-theme>
 </body>

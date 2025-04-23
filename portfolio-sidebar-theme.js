@@ -60,20 +60,20 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
+        
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
       }
 
       .wrapper{
-        display: flex;
+        display: inline-flex;
       }
 
-      ::slotted(div){
+      /* ::slotted(div){
         display: flex;
-      }
+      } */
     `];
   }
 

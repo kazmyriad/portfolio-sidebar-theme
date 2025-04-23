@@ -64,8 +64,20 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         height: 100vh;
         top: 0;
         overflow-x: hidden;
-        background-color: blue;
+        background:  linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        url(https://i.pinimg.com/736x/be/67/57/be6757d2610cc12e64ce497c43734aac.jpg);;
+        background-color: black;
         display: flex;
+        text-align: center;
+        border-right: 10px solid white;
+      }
+
+      .links{
+        margin: auto;
+        
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
@@ -87,7 +99,11 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
     return html`
       <div class="wrapper">
         <div class ="links">
-         
+          <p>(About Me)</p>
+          <p>(Projects)</p>
+          <p>(My Work)</p>
+          <p>(Something else)</p>
+          <p>(Contact)</p>
           <!-- This is where the auto population of links happens dummy -->
            <slot></slot>
         </div>

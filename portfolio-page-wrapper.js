@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `portfolio-page`
+ * `portfolio-page-wrapper`
  * 
  * @demo index.html
  * @element portfolio-page
  */
-export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioPageWrapper extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "portfolio-page";
+    return "portfolio-page-wrapper";
   }
   
   constructor() {
@@ -37,7 +37,6 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      breakpoint: { type: Number }
     };
   }
 
@@ -46,15 +45,11 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-
+      
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        width: 100%;
-        margin-bottom: 20px;   
         display: inline-block;
       }
-
-      
     `];
   }
 
@@ -68,17 +63,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
       </div>`;
   }
 
-  // Is  telling the wrapper a thing is happening. should I even be using connected callback. 
-  connectedCallback(){
-    super.connectedCallback();
-    const page = this.getAttribute('breakpoint');
-
-    this.dispatchEvent(new CustomEvent('new-page'), {
-      detail: { breakpoint },
-      bubbles: true,
-      composed: true
-    });
-  }
+ 
 
   //^^ somehow causing margins to disappear, unsure why
 
@@ -91,4 +76,4 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(PortfolioPage.tag, PortfolioPage);
+globalThis.customElements.define(PortfolioPageWrapper.tag, PortfolioPageWrapper);
