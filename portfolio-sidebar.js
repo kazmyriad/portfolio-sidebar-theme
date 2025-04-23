@@ -29,22 +29,6 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
   
   constructor() {
     super();
-   
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/portfolio-sidebar-theme.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
-  }
-
-  // Lit reactive properties
-  static get properties() {
-    return {
-      ...super.properties,
-      title: { type: String },
-    };
   }
 
   // Lit scoped styles
@@ -53,11 +37,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        height: 100vh;
-        position: sticky;
       }
 
       .wrapper
@@ -79,8 +59,6 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
 
       .links{
         margin: auto;
-        position: sticky; 
-        /* How to make sticky cause it's not sticking */
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
@@ -101,25 +79,12 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="wrapper">
-        <div class ="links">
-          <p>(About Me)</p>
-          <p>(Projects)</p>
-          <p>(My Work)</p>
-          <p>(Something else)</p>
-          <p>(Contact)</p>
-          <!-- This is where the auto population of links happens dummy -->
+        <div class="links">
            <slot></slot>
         </div>
       </div>`;
   }
 
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
-  }
 }
 
 globalThis.customElements.define(PortfolioSidebar.tag, PortfolioSidebar);

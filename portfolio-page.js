@@ -4,7 +4,6 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
  * `portfolio-page`
@@ -12,7 +11,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element portfolio-page
  */
-export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioPage extends DDDSuper(LitElement) {
 
   static get tag() {
     return "portfolio-page";
@@ -21,15 +20,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title="";
-    this.breakpoint="";
-   
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/portfolio-sidebar-theme.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.pagenumber=null;
   }
 
   // Lit reactive properties
@@ -37,7 +28,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      breakpoint: { type: Number }
+      pagenumber: { type: Number }
     };
   }
 
@@ -46,46 +37,46 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-
         background-color: var(--ddd-theme-accent);
+        height: 100vh;
+        display: block;
+      }
+      h1
+      {
+        text-align: right;
         font-family: var(--ddd-font-navigation);
-        width: 100%;
-        margin-bottom: 20px;   
-        display: inline-block;
+        color: rgb(204, 204, 253);
+        background-image: linear-gradient(to right, rgba(122, 43, 73, 0), rgba(40, 0, 100, 0.264), rgb(84, 43, 122));
+        padding-right: 50px;
       }
 
-      
+      .wrapper {
+        padding: 40px;
+      }
     `];
   }
 
 
   render() {
     return html`
+      <h1>${this.title}</h1>
       <div class="wrapper">
-        <slot>
-
-        </slot>
+        <slot></slot>
       </div>`;
   }
 
-  // Is  telling the wrapper a thing is happening. should I even be using connected callback. 
-  connectedCallback(){
-    super.connectedCallback();
-    const page = this.getAttribute('breakpoint');
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
 
-    this.dispatchEvent(new CustomEvent('new-page'), {
-      detail: { breakpoint },
+    this.dispatchEvent(new CustomEvent('page-added', {
       bubbles: true,
-      composed: true
-    });
-  }
-
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+      composed: true,
+      detail: {
+        value: this
+      }
+    }))
   }
 }
 
