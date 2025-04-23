@@ -59,21 +59,19 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
-        
+       
+        height: 100vh;
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        width: 100vw;
-        height: 100vh;
+        
       }
 
       .wrapper{
         display: inline-flex;
+        height: 100vh;
       }
 
-      /* ::slotted(div){
-        display: flex;
-      } */
+      /* is not resizing when child content is growing */
     `];
   }
 

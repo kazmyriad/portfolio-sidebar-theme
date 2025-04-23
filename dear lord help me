@@ -1,0 +1,4 @@
+- sidebar-theme: is not resizing when child is growing
+- sidebar: links are not sticky? Will not move as scrollbar moves (likely related to sizing ^ issue)
+- Margins generally don't work. Not a priority but curious why (has to do with callback?)
+- page-wrapper literally only exists because I cannot get its children to become inline-blocks. help (or is this fine)

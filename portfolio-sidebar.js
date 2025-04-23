@@ -56,6 +56,8 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
+        height: 100vh;
+        position: sticky;
       }
 
       .wrapper
@@ -77,7 +79,8 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
 
       .links{
         margin: auto;
-        
+        position: sticky; 
+        /* How to make sticky cause it's not sticking */
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)

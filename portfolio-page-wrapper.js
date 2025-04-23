@@ -65,8 +65,6 @@ export class PortfolioPageWrapper extends DDDSuper(I18NMixin(LitElement)) {
 
  
 
-  //^^ somehow causing margins to disappear, unsure why
-
   /**
    * haxProperties integration via file reference
    */
