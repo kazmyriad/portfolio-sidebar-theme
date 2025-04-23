@@ -85,6 +85,21 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       </div>`;
   }
 
+  // Listening for a new page
+  // firstUpdated(){
+  //   this.shadowRoot.addEventListener('page-added', (e) =>{
+  //   })
+  // }
+  // firstUpdated vs connectedCallback?
+
+  connectedCallback(){
+    super.connectedCallback();
+    this.shadowRoot.addEventListener('page-added', (e) =>{
+    
+    })
+
+  }
+
   /**
    * haxProperties integration via file reference
    */

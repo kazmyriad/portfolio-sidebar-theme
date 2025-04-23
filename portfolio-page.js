@@ -46,6 +46,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      breakpoint: { type: Number }
     };
   }
 
@@ -80,6 +81,16 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
 
         </slot>
       </div>`;
+  }
+
+  // Is  telling the wrapper a thing is happening. should I even be using connected callback. 
+  connectedCallback(){
+    const page = this.getAttribute('breakpoint');
+    this.dispatchEvent(new CustomEvent('new-page'), {
+      detail: { breakpoint },
+      bubbles: true,
+      composed: true
+    });
   }
 
   /**
