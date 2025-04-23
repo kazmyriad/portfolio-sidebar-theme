@@ -17,15 +17,6 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
   static get tag() {
     return "portfolio-page";
   }
-
-  // Functionality for the scroll is NOT within the pages or screen itself, logic has to be 
-  // handled elsewhere (in THIS wrapper)
-
-  //THIS COMPONENT IS ACTING AS A WRAPPER, should contain every other web component
-  // component: screen wrappers (just to determine spacing/consistency)
-  // Main purpose of this component = sizing and consistency
-
-  //
   
   constructor() {
     super();
@@ -66,6 +57,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
       .wrapper
       {
         width: 100%;
+        margin: 20px;
       }
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
@@ -85,13 +77,17 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
 
   // Is  telling the wrapper a thing is happening. should I even be using connected callback. 
   connectedCallback(){
+    super.connectedCallback();
     const page = this.getAttribute('breakpoint');
+
     this.dispatchEvent(new CustomEvent('new-page'), {
       detail: { breakpoint },
       bubbles: true,
       composed: true
     });
   }
+
+  //^^ somehow causing margins to disappear, unsure why
 
   /**
    * haxProperties integration via file reference

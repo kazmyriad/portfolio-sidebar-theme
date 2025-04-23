@@ -94,8 +94,8 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
 
   connectedCallback(){
     super.connectedCallback();
-    this.shadowRoot.addEventListener('page-added', (e) =>{
-    
+    this.shadowRoot.addEventListener('new-page', (e) =>{
+
     })
 
   }
