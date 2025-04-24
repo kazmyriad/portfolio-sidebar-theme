@@ -19,21 +19,6 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     return "portfolio-sidebar-theme";
   }
 
-  // Functionality for the scroll is NOT within the pages or screen itself, logic has to be 
-  // handled elsewhere (in THIS wrapper)
-
-  //THIS COMPONENT IS ACTING AS A WRAPPER, should contain every other web component
-  // component: screens
-  // component: sidebar
-  // component: scroll to the top button? (footer)
-  // component: this wrapper
-  // component: screen wrappers (just to determine spacing/consistency)
-  // MAIN reason for wrapper element: the logic for jumping through the page is in THIS wrapper,
-  // little actual design here (Sidebar may live here?) primarily just a <slot> tag
-
-  //hax-the-club - for screen component/component layouts and scroll behavior
-
-  //
   
   constructor() {
     super();
@@ -53,9 +38,9 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     return [super.styles,
     css`
       :host {
+        --simple-icon-width: 70px;
+        --simple-icon-height: 70px;
         height: 100vh;
-        height: 100%;
-     
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
@@ -69,13 +54,12 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         left: 0;
         color: var(--portfolio-sidebar-color, white);
       }
+
       .wrapper {
         margin-left: 310px;
+       
       }
-      a {
-        color: white;
-        font-size: var(--ddd-font-size-m);
-      }
+    
 
       ul {
           list-style-type: none;
@@ -109,8 +93,33 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
 
       scroll-button{
         position: fixed;
-        margin-top: 85vh;
-        margin-left: 95vw;
+        margin-top: 80vh;
+        margin-left: 93vw;
+
+      }
+
+      h1
+      {
+        font-size: 60px;
+        text-align: center;
+      }
+      .header{
+        margin-top: 50px;
+      }
+
+      .star
+      {
+        width: 150px;
+        margin: auto;
+        margin-top: 50px;
+        display: block;
+        background-color:var(--ddd-theme-default-wonderPurple);
+        border-radius: 100%;
+        padding: 20px;
+      }
+
+      .header{
+        margin-left: 300px;
       }
  
     `];
@@ -120,12 +129,18 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   render() {
     return html`
     <scroll-button></scroll-button>
+
+    <div class="header">
+      <img class="star" src="https://file.garden/Zea8jho9KEiz9frQ/starry%201.png" alt="A star with glasses, waving at you :D">
+      <h1>Portfolio</h1>
+    </div>
+
     <portfolio-sidebar>
-      
       <ul>
         ${this.pages.map((page, index) => html`<li><a href="#${page.number}" @click="${this.linkChange}" data-index="${index}">${page.title}</a></li>`)}
       </ul>
     </portfolio-sidebar>
+
     <div class="wrapper" @page-added="${this.addPage}">
       <slot></slot>
     </div>`;

@@ -37,8 +37,8 @@ export class PortfolioPage extends DDDSuper(LitElement) {
     return [super.styles,
     css`
       :host {
-        background-color: var(--ddd-theme-accent);
-        min-height: 70vh;
+        background-color: var(--ddd-theme-primary);
+        height: 100vh;
         display: block;
       }
       h1
@@ -48,10 +48,12 @@ export class PortfolioPage extends DDDSuper(LitElement) {
         color: rgb(204, 204, 253);
         background-image: linear-gradient(to right, rgba(122, 43, 73, 0), rgba(40, 0, 100, 0.264), rgb(84, 43, 122));
         padding-right: 50px;
+        margin-bottom: 0px;
       }
 
       .wrapper {
-        padding: 40px;
+        padding: 20px;
+        
       }
     `];
   }
@@ -59,10 +61,13 @@ export class PortfolioPage extends DDDSuper(LitElement) {
 
   render() {
     return html`
+    <div class="background-color">
       <h1>${this.title}</h1>
       <div class="wrapper">
         <slot></slot>
-      </div>`;
+      </div>
+    </div>
+      `;
   }
 
   firstUpdated(changedProperties) {
