@@ -5,6 +5,8 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import './portfolio-sidebar.js';
+import '@haxtheweb/scroll-button/scroll-button.js';
+
 /**
  * `portfolio-sidebar-theme`
  * 
@@ -75,15 +77,51 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         font-size: var(--ddd-font-size-m);
       }
 
-      /* is not resizing when child content is growing */
-      /* Is not resizing at all? */
+      ul {
+          list-style-type: none;
+          line-height: 70px;
+          margin-right: 10px;
+      }
+      
+      
+      a{
+        color: var(--ddd-theme-default-wonderPurple);
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 45px;
+        font-size: 30px;
+        
+      }
+
+      a:link, a:visited {
+        color: var(--ddd-theme-default-athertonViolet);
+        background-color: var(--ddd-theme-default-wonderPurple);
+        text-decoration: none;
+      
+      }
+
+      a:hover{
+        transition: all .5s ease-in-out;
+        color: var(--ddd-theme-default-accent);
+        background-color: var(--ddd-theme-default-skyBlue);
+      }
+
+      scroll-button{
+        position: fixed;
+        margin-top: 85vh;
+        margin-left: 95vw;
+      }
+ 
     `];
   }
 
   // Lit render the HTML
   render() {
     return html`
+    <scroll-button></scroll-button>
     <portfolio-sidebar>
+      
       <ul>
         ${this.pages.map((page, index) => html`<li><a href="#${page.number}" @click="${this.linkChange}" data-index="${index}">${page.title}</a></li>`)}
       </ul>

@@ -47,8 +47,8 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         top: 0;
         overflow-x: hidden;
         background:  linear-gradient(
-          rgba(0, 0, 0, 0.7), 
-          rgba(0, 0, 0, 0.7)
+          rgba(0, 0, 0, 0.4), 
+          rgba(0, 0, 0, 0.4)
         ),
         url(https://i.pinimg.com/736x/be/67/57/be6757d2610cc12e64ce497c43734aac.jpg);;
         background-color: black;
@@ -60,6 +60,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
       .links{
         margin: auto;
       }
+
 
       // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
       // LOGIC TO BE HANDLED BY WRAPPER: array list through elements to form links

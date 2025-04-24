@@ -38,7 +38,7 @@ export class PortfolioPage extends DDDSuper(LitElement) {
     css`
       :host {
         background-color: var(--ddd-theme-accent);
-        height: 100vh;
+        min-height: 70vh;
         display: block;
       }
       h1
