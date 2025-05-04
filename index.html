@@ -12,8 +12,18 @@
       margin: var(--ddd-spacing-0);
       padding: var(--ddd-spacing-0);
     }
-
-   
+    .artContainer{
+      display: flex;
+      overflow-x: scroll;
+      width: 70vw;
+      margin: auto;
+      
+    }
+    .pictures{
+      height: 170px;
+      display: inline;
+      margin: 10px 5px 10px 5px;
+    }
   </style>
   
 </head>
@@ -23,30 +33,63 @@
 <script type="module" src="portfolio-page.js"></script>
 <body>
   <portfolio-sidebar-theme>
-    <portfolio-page title="About me" pagenumber="1" data-primary="12">
+    <portfolio-page title="About me" pagenumber="1" data-primary="14">
       <div>
-        <img src="https://file.garden/Zea8jho9KEiz9frQ/20241021_154531.jpg" alt="" style="margin: 20px; width: 250px; height: 250px; object-fit: cover; float:left;">
-      <p>My name is Alyssa and I'm pursuing a degree in Human Centered Design and Development. I'm also minoring in Health
+        <img src="https://file.garden/Zea8jho9KEiz9frQ/20241021_154531.jpg" alt="" style="margin: 20px; width: 400px; height: 400px; object-fit: cover; float:left; border-radius: 100%;">
+        <p>My name is Alyssa and I'm a second year student pursuing a degree in Human Centered Design and Development, which a concentration in healthcare. I'm also minoring in Health
         Policy Administration and Information Sciences.
-      </p>
-      <p>
+        </p>
+        <p>
         I've been on the Dean's List Fall and Spring 2024, and I am projected to graduate May, 2027. I'm really passionate
         about the intersection of healthcare and information sciences. Beyond that, I really enjoy front-end development 
         and visual design! I do graphic design and art in my free time.
-      </p>
+        </p>
+
       </div>
     </portfolio-page>
-    <portfolio-page title="Projects" pagenumber="2" data-primary="10">
-      <p>My name is Alyssa and I'm a Human Centered Design and Development major. I will backflip off your windshield.</p>
+    <portfolio-page title="Projects" pagenumber="2" data-primary="13">
+      <p>IST 256</p>
+      <p>RPG Contributors</p>
+      <p>DDD card list? Is it worth it</p>
+      <p>This website</p>
+     
+      <p>HCDD</p>
+      <p>Children's website</p>
     </portfolio-page>
-    <portfolio-page title="Artwork" pagenumber="3">
-      <p>My name is Alyssa and I'm a Human Centered Design and Development major. I will backflip off your windshield.</p>
+    <portfolio-page title="Artwork" pagenumber="3" data-primary="14">
+      
+      <p>In my free time, I like to paint and draw. Although most of my artwork is digital, I do traditional
+        art from time to time as well.
+      </p>
+      <div class="artContainer">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/starry%201.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/smiley.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Charlie%20PD.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2023/Lyra%20Lookin.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Charlie%20Doodle.PNG" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2025/youve%20always%20been%20in%20the%20wind.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Novian%20headshot.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2025/DnD%20Collab.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Aeurin%20PD.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/moon%20hugger.png" alt="">
+
+      </div>
+      
+      <p>I also do commissions - here is some work I've done for clients I've had;</p>
+      <div class="artContainer"> 
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(PropertyOfHog)%20Agape.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Isi_Daddy)%20Saira.png" alt="">
+        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Apselene)%20Char%201%20WM.png" alt="">
+      </div>
+      <p>I accept commissions through kofi (LINK), where I also upload every commission I complete.</p>
+
     </portfolio-page>
-    <portfolio-page title="Work" pagenumber="4">
-      <p>My name is Alyssa and I'm a Human Centered Design and Development major. I will backflip off your windshield.</p>
+    <portfolio-page title="Work" pagenumber="4" data-primary="13">
+      <p>Resume</p>
     </portfolio-page>
-    <portfolio-page title="Contact" pagenumber="5">
+    <portfolio-page title="Contact" pagenumber="5" data-primary="14">
       <p>My name is Alyssa and I'm a Human Centered Design and Development major. I will backflip off your windshield.</p>
+      <iframe title="myframe" src="https://docs.google.com/forms/d/e/1FAIpQLScedEPt_0con6I8B3cXxJ3YOb7sIaBaIWVUfenQF7rJJQNc2Q/viewform?embedded=true" style="width: 500px; height: 500px; display:block; margin: auto; border-radius: 100%;">Loading…</iframe>
     </portfolio-page>
   </portfolio-sidebar-theme>
 </body>

@@ -42,7 +42,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
 
       .wrapper
       {
-        width: 300px;
+        width: 310px;
         height: 100vh;
         top: 0;
         overflow-x: hidden;
@@ -54,7 +54,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         background-color: black;
         display: flex;
         text-align: center;
-        border-right: 10px solid white;
+        /* border-right: 10px solid white; */
       }
 
       .links{

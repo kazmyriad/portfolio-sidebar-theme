@@ -38,8 +38,8 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     return [super.styles,
     css`
       :host {
-        --simple-icon-width: 70px;
-        --simple-icon-height: 70px;
+        --simple-icon-width: 50px;
+        --simple-icon-height: 50px;
         height: 100vh;
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
@@ -64,7 +64,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
       ul {
           list-style-type: none;
           line-height: 70px;
-          margin-right: 10px;
+          margin-right: 30px;
       }
       
       
@@ -73,16 +73,14 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         padding: 10px;
         padding-left: 20px;
         padding-right: 20px;
-        border-radius: 45px;
-        font-size: 30px;
-        
+        font-size: 25px;
       }
 
       a:link, a:visited {
         color: var(--ddd-theme-default-athertonViolet);
         background-color: var(--ddd-theme-default-wonderPurple);
         text-decoration: none;
-      
+    
       }
 
       a:hover{
@@ -103,9 +101,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         font-size: 60px;
         text-align: center;
       }
-      .header{
-        margin-top: 50px;
-      }
+      
 
       .star
       {
@@ -120,6 +116,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
 
       .header{
         margin-left: 300px;
+        margin-top: 50px;
       }
  
     `];
