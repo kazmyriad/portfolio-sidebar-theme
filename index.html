@@ -22,6 +22,7 @@
       border-radius: 30px;
       
     }
+
     .pictures{
       height: 210px;
       display: inline;
@@ -51,10 +52,24 @@
 
     .artContent{
       padding: 5px;
-      width: 600px;
+      width: 70%;
       float: left;
       margin-right:30px;
     }
+
+    @media screen and (max-width: 720px) {
+      
+      img{
+        width: 200px;
+        height:200px;
+        justify-self: center;
+        float: none;
+      }
+      .artContainer{
+        height: 250px;
+      }
+    }
+
   </style>
   
 </head>
@@ -66,7 +81,7 @@
   <portfolio-sidebar-theme>
     <portfolio-page title="About me" pagenumber="1" data-primary="14">
       <div>
-        <img src="https://file.garden/Zea8jho9KEiz9frQ/20241021_154531.jpg" alt="" style="margin: 20px; width: 400px; height: 400px; object-fit: cover; float:left; border-radius: 100%;">
+        <img src="https://file.garden/Zea8jho9KEiz9frQ/20241021_154531.jpg" alt="" style=" margin: 20px; width: 400px; height: 400px; object-fit: cover; float:left; border-radius:100%">
         <p>My name is Alyssa and I'm a second year student pursuing a degree in Human Centered Design and Development, which a concentration in healthcare. I'm also minoring in Health
         Policy Administration and Information Sciences.
         </p>
@@ -119,11 +134,9 @@
         <div">
           <p>
             Much of my work is centered around character design and web design because that's what I enjoy creating the most! 
-            My style is very cartoonish and often contains warm, bright colors.
           </p>
           <p>
-            I also enjoy creating artwork for logos and other HCI projects I work on - most notably, the first image was a mock-up mascot for
-            a project I had worked on, which was a children's website.
+            I also enjoy creating artwork for logos and other HCCD projects I work on.
           </p>
           <p>I take commissions periodically with some examples I've completed for previous clients to the side.</p>
         </div>
@@ -133,7 +146,7 @@
     <portfolio-page title="Work" pagenumber="4" data-primary="13">
       <a href="https://file.garden/Zea8jho9KEiz9frQ/Foran_Resume_IST%20(2025).pdf" aria-label="Resume" download="Foran Resume">
         <img src="https://file.garden/Zea8jho9KEiz9frQ/Screenshot%202025-05-04%20000529.png" alt="" title="Click to download!"
-        style="margin: 20px; height: 70vh; float: left;">
+        style="margin: 20px; width: 40%; float: left;">
       </a>
       <strong>University Libraries - Research Consulting</strong>
         <p class="workText">
@@ -154,7 +167,7 @@
     </portfolio-page>
     
     <portfolio-page title="Contact" pagenumber="5" data-primary="14">
-      <iframe title="myframe" src="https://docs.google.com/forms/d/e/1FAIpQLScedEPt_0con6I8B3cXxJ3YOb7sIaBaIWVUfenQF7rJJQNc2Q/viewform?embedded=true" style="width: 500px; height: 500px; display:block; margin: auto; border-radius: 100%;">Loading…</iframe>
+      <iframe title="myframe" src="https://docs.google.com/forms/d/e/1FAIpQLScedEPt_0con6I8B3cXxJ3YOb7sIaBaIWVUfenQF7rJJQNc2Q/viewform?embedded=true" style="width: 300px; height: 300px; display:block; margin: auto; border-radius: 100%;">Loading…</iframe>
     </portfolio-page>
 
   </portfolio-sidebar-theme>

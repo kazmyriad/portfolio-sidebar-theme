@@ -50,29 +50,36 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
           rgba(0, 0, 0, 0.4), 
           rgba(0, 0, 0, 0.4)
         ),
-        url(https://i.pinimg.com/736x/be/67/57/be6757d2610cc12e64ce497c43734aac.jpg);;
+        url(https://i.pinimg.com/736x/be/67/57/be6757d2610cc12e64ce497c43734aac.jpg);
         background-color: black;
         display: flex;
         text-align: center;
-        /* border-right: 10px solid white; */
       }
 
       .links{
         margin: auto;
       }
+      @media screen and (max-width: 400px){
+        .wrapper{
+          display:none;
+        }
+      }
 
-
-      // WIDTH of this container is the width of the screen (a set width) MINUS the sidebar width (or else content will be hidden)
-      // LOGIC TO BE HANDLED BY WRAPPER: array list through elements to form links
-      // "Bubble" info up to wrapper, let the wrapper then make the array list
-      // EVENT LISTENER - a firstUpdated to bubble info up when a page is loaded. The screens DO NOT KNOW ABOUT ANYTHING
-      // NOT WITHIN THEMSELVES, SO YOU HAVE TO PASS THE INFORMATION UPWARDS (to parent elements)
-      // Q: How to pass info up to sidebar? It's at the same height as the portfolio pages - should I pass the eventListener
-      // info to the portfolio-sidebar-theme, then back down? Can I do that? Feels very jumpy
+      @media screen and (max-width: 720px) {
+        .wrapper
+        {
+          transition: all .5s ease-in-out;
+          width: 100px;
+          background:  linear-gradient(
+          rgba(0, 0, 0, 0.6), 
+          rgba(0, 0, 0, 0.6)
+        ),
+        url(https://i.pinimg.com/736x/be/67/57/be6757d2610cc12e64ce497c43734aac.jpg);
+        }
+        
+      }
+ 
       
-
-      // OR within the main wrapper, listen for when a page is added?
-    
     `];
   }
 

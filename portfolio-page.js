@@ -63,8 +63,33 @@ export class PortfolioPage extends DDDSuper(LitElement) {
         padding: 20px;
         
       }
+      @media screen and (max-width: 400px){
+        .wrapper{
+          width: 100%;
+          margin-left: 0;
+        }
+      }
 
-      
+      @media screen and (max-width: 720px) {
+        :host{
+          width: 100%;
+        }
+        .wrapper
+        {
+          transition: all .5s ease-in-out;
+        }
+
+        ::slotted(*){
+          justify-content: center;
+          text-align:center;
+          justify-self: center;
+
+          font-size: 15px;
+          width: 100%
+        }
+
+      }
+     
     `];
   }
 

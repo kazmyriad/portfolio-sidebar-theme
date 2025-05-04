@@ -68,7 +68,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
       }
       
     
-      a{
+      a, a:link, a:visited{
         color: var(--ddd-theme-default-athertonViolet);
         background-color: var(--ddd-theme-default-wonderPurple);
         text-decoration: none;
@@ -77,18 +77,6 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         padding-right: 20px;
         font-size: 25px;
       }
-
-      /* For local purposes */
-      a:link, a:visited {
-        color: var(--ddd-theme-default-athertonViolet);
-        background-color: var(--ddd-theme-default-wonderPurple);
-        text-decoration: none;
-        padding: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 25px;
-    
-      } 
 
       a:hover{
         transition: all .5s ease-in-out;
@@ -98,32 +86,76 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
 
       scroll-button{
         position: fixed;
-        margin-top: 80vh;
-        margin-left: 93vw;
+        margin-top: 650px;
+        margin-left: 94%;
 
-      }
-
-      h1
-      {
-        font-size: 60px;
-        text-align: center;
-      }
-      
-
-      .star
-      {
-        width: 150px;
-        margin: auto;
-        margin-top: 50px;
-        display: block;
-        background-color:var(--ddd-theme-default-wonderPurple);
-        border-radius: 100%;
-        padding: 20px;
       }
 
       .header{
         margin-left: 300px;
         margin-top: 50px;
+      }
+
+      @media screen and (max-width: 400px){
+        portfolio-sidebar{
+          display: none;
+        }
+
+        .wrapper{
+          margin-left: 0px;
+          width: 100%;
+        }
+
+        .pagesWrapper{
+          display:none;
+        }
+
+        scroll-button{
+          margin-left: 45%;
+          margin-top: 725px;
+          transition: all .5s ease-in-out;
+        }
+      }
+      
+      @media screen and (min-width: 400px) and (max-width: 720px) {
+        portfolio-sidebar
+        {
+          width: 100px;
+        }
+
+        .wrapper
+        {
+          transition: all .5s ease-in-out;
+          margin-left: 100px;
+        }     
+
+        a, a:link, a:visited{
+          transition: all .5s ease-in-out;
+          background: none;
+          font-size: 20px;
+          padding: 5px;
+        }
+
+        .pages{
+          line-height: 50px;
+          width: 100%;
+          justify-items: center;
+        }
+
+        .pagesWrapper{
+          width: 100px;
+          justify-items: center;
+        }
+
+        scroll-button{
+          margin-left: 30px;
+          transition: all .5s ease-in-out;
+        }
+
+        p{
+          font-size: 5px;
+        }
+
       }
  
     `];
@@ -133,16 +165,12 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
   render() {
     return html`
     <scroll-button></scroll-button>
-
-    <div class="header">
-      <img class="star" src="https://file.garden/Zea8jho9KEiz9frQ/starry%201.png" alt="A star with glasses, waving at you :D">
-      <h1>Portfolio</h1>
-    </div>
-
     <portfolio-sidebar>
+      <div class="pagesWrapper">
       <ul class="pages">
         ${this.pages.map((page, index) => html`<li><a href="#${page.number}" @click="${this.linkChange}" data-index="${index}">${page.title}</a></li>`)}
       </ul>
+      </div>
     </portfolio-sidebar>
 
     <div class="wrapper" @page-added="${this.addPage}">
