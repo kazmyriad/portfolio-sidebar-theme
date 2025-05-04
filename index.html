@@ -12,17 +12,48 @@
       margin: var(--ddd-spacing-0);
       padding: var(--ddd-spacing-0);
     }
+
     .artContainer{
       display: flex;
       overflow-x: scroll;
-      width: 70vw;
-      margin: auto;
+      width: 100%;
+      height: 250px;
+      background-color: #e8c6fb;
+      border-radius: 30px;
       
     }
     .pictures{
-      height: 170px;
+      height: 210px;
       display: inline;
       margin: 10px 5px 10px 5px;
+      border-radius: 30px;
+    }
+
+    a:hover img:hover{
+      opacity: 70%;
+      transition: all .5s ease-in-out;
+    }
+
+    strong{
+      display:block;
+      font-size: 30px;
+      margin: 10px;
+    }
+
+    .workText{
+      margin-bottom: 20px;
+      color: var(--ddd-theme-default-athertonViolet);
+    }
+
+    p{
+      color: var(--ddd-theme-default-wonderPurple);
+    }
+
+    .artContent{
+      padding: 5px;
+      width: 600px;
+      float: left;
+      margin-right:30px;
     }
   </style>
   
@@ -47,6 +78,7 @@
 
       </div>
     </portfolio-page>
+
     <portfolio-page title="Projects" pagenumber="2" data-primary="13">
       <p>IST 256</p>
       <p>RPG Contributors</p>
@@ -56,41 +88,75 @@
       <p>HCDD</p>
       <p>Children's website</p>
     </portfolio-page>
+
     <portfolio-page title="Artwork" pagenumber="3" data-primary="14">
-      
-      <p>In my free time, I like to paint and draw. Although most of my artwork is digital, I do traditional
-        art from time to time as well.
-      </p>
-      <div class="artContainer">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/starry%201.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/smiley.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Charlie%20PD.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2023/Lyra%20Lookin.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Charlie%20Doodle.PNG" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2025/youve%20always%20been%20in%20the%20wind.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Novian%20headshot.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2025/DnD%20Collab.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Aeurin%20PD.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/moon%20hugger.png" alt="">
-
+      <div style="display: flex; align-items: center;">
+        <div class="artContent">
+          <strong>Personal Art</strong>
+            <div class="artContainer">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/starry%201.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/smiley.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Charlie%20PD.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2023/Lyra%20Lookin.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Charlie%20Doodle.PNG" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2025/youve%20always%20been%20in%20the%20wind.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Novian%20headshot.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2025/DnD%20Collab.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/Aeurin%20PD.png" alt="">
+              <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/2024/moon%20hugger.png" alt="">
+            </div>
+            <strong>Commissions</strong>
+              <div class="artContainer"> 
+                <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(PropertyOfHog)%20Agape.png" alt="">
+                <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Isi_Daddy)%20Saira.png" alt="">
+                <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Apselene)%20Char%201%20WM.png" alt="">
+                <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/Jasper%20Icon.PNG" alt="">
+                <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/HEART%20ANGEL%20(@AnxiousSeas_).png" alt="">
+                <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Isi_Daddy)%20Avarus.png" alt="">
+                <img class="pictures"  src="https://storage.ko-fi.com/cdn/useruploads/display/1fc8d313-66b8-4c5e-900e-8b2fcb9ea322_580ccf65.jpg" alt="">
+              </div>
+          </div>
+        <div">
+          <p>
+            Much of my work is centered around character design and web design because that's what I enjoy creating the most! 
+            My style is very cartoonish and often contains warm, bright colors.
+          </p>
+          <p>
+            I also enjoy creating artwork for logos and other HCI projects I work on - most notably, the first image was a mock-up mascot for
+            a project I had worked on, which was a children's website.
+          </p>
+          <p>I take commissions periodically with some examples I've completed for previous clients to the side.</p>
+        </div>
       </div>
-      
-      <p>I also do commissions - here is some work I've done for clients I've had;</p>
-      <div class="artContainer"> 
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(PropertyOfHog)%20Agape.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Isi_Daddy)%20Saira.png" alt="">
-        <img class="pictures"  src="https://file.garden/Zea8jho9KEiz9frQ/Comm%20Examples/(Apselene)%20Char%201%20WM.png" alt="">
-      </div>
-      <p>I accept commissions through kofi (LINK), where I also upload every commission I complete.</p>
-
     </portfolio-page>
+   
     <portfolio-page title="Work" pagenumber="4" data-primary="13">
-      <p>Resume</p>
+      <a href="https://file.garden/Zea8jho9KEiz9frQ/Foran_Resume_IST%20(2025).pdf" aria-label="Resume" download="Foran Resume">
+        <img src="https://file.garden/Zea8jho9KEiz9frQ/Screenshot%202025-05-04%20000529.png" alt="" title="Click to download!"
+        style="margin: 20px; height: 70vh; float: left;">
+      </a>
+      <strong>University Libraries - Research Consulting</strong>
+        <p class="workText">
+          As a Peer Research Consultant, I've tutored numerous Undergraduate and Graduate Students
+          on thorough research techniques and citation styles. From 100-level papers to theses, I have experience 
+          in many forms of research writing across many different disciplines.
+        </p>
+      <strong>Penn State Learning - Writing Tutoring</strong>
+        <p class="workText"> 
+          At the Writing Center, I've met students of various backgrounds and studies, exposing me to
+          many different viewpoints. As a tutor, my goal is to improve student writers - not just student papers.
+        </p>
+        <p class="workText">
+          As a coordinator, my job is a bit different - I collect data each month and distribute asynchronous assignments
+          to tutors when available. I am a point of communication between the Writing Center Coordinator and the tutors. I work
+          to streamline student submissions and work with tutors to distribute asynchronous packages in a timely manner. 
+      </p>
     </portfolio-page>
+    
     <portfolio-page title="Contact" pagenumber="5" data-primary="14">
-      <p>My name is Alyssa and I'm a Human Centered Design and Development major. I will backflip off your windshield.</p>
       <iframe title="myframe" src="https://docs.google.com/forms/d/e/1FAIpQLScedEPt_0con6I8B3cXxJ3YOb7sIaBaIWVUfenQF7rJJQNc2Q/viewform?embedded=true" style="width: 500px; height: 500px; display:block; margin: auto; border-radius: 100%;">Loading…</iframe>
     </portfolio-page>
+
   </portfolio-sidebar-theme>
 </body>
 </html>

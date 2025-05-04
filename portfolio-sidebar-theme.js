@@ -61,27 +61,34 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
       }
     
 
-      ul {
+      .pages {
           list-style-type: none;
           line-height: 70px;
           margin-right: 30px;
       }
       
-      
+    
       a{
-        color: var(--ddd-theme-default-wonderPurple);
+        color: var(--ddd-theme-default-athertonViolet);
+        background-color: var(--ddd-theme-default-wonderPurple);
+        text-decoration: none;
         padding: 10px;
         padding-left: 20px;
         padding-right: 20px;
         font-size: 25px;
       }
 
+      /* For local purposes */
       a:link, a:visited {
         color: var(--ddd-theme-default-athertonViolet);
         background-color: var(--ddd-theme-default-wonderPurple);
         text-decoration: none;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 25px;
     
-      }
+      } 
 
       a:hover{
         transition: all .5s ease-in-out;
@@ -133,7 +140,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
     </div>
 
     <portfolio-sidebar>
-      <ul>
+      <ul class="pages">
         ${this.pages.map((page, index) => html`<li><a href="#${page.number}" @click="${this.linkChange}" data-index="${index}">${page.title}</a></li>`)}
       </ul>
     </portfolio-sidebar>
