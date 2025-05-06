@@ -14,20 +14,22 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 export class Slideshow extends DDDSuper(LitElement) {
 
   static get tag() {
-    return "slideshow";
+    return "slide-show";
   }
   
   constructor() {
     super();
     this.slides = [];
     this.currentSlideIndex = 0;
+    this.addEventListener("add-slide", this.addSlide.bind(this));
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-     slide: { type: Array }
+     slides: { type: Array },
+     currentSlideIndex: { type: Number },
     };
   }
   
@@ -67,12 +69,16 @@ export class Slideshow extends DDDSuper(LitElement) {
     return html`
     <div class="container">
      <div class="debugging">
-      <a class="prev" onclick="decrementSlide()">up</a>
-      <a class="next" onclick="incrementSlide()">down</a> 
+      <a class="prev" @click="${this.incrementSlide}"><button>up</button></a>
+      <a class="next" @click="${this.decrementSlide}"><button>down</button></a> 
       <!-- buttons are not showing up at all -->
        <!-- Once I get to to appear, implement function logic -->
+      <p>Current Slide: ${this.currentSlideIndex}</p>
+      <p>Number of Slides: ${this.slides.length}</p>
       </div>
-      <slot></slot>
+      <div>
+        <slot></slot>
+      </div>
      </div>
       `;
   }
@@ -82,31 +88,22 @@ export class Slideshow extends DDDSuper(LitElement) {
   // 2.) when slideNumber = currentSlideIndex, set display = showing or all others to none
   // 3.) onclick? for buttons to increment/decrement currentSlideNumber
 
-  incrementSlide(slide){
-   if(slide <= 1 || slide > this.slides.length)
-    {
-    this.currentSlideIndex = 1;
-  }
-  else{
-    this.currentSlideIndex++;
-  }
-  
+  incrementSlide(){
+    if(this.currentSlideIndex < this.slides.length) {
+      this.currentSlideIndex++;
+    }
   }
 
-  decrementSlide(slide){
-    if(slide <= 1 || slide < this.slides.length)
-      {
-      this.currentSlideIndex = this.slides.length;   
-    }
-    else{
+  decrementSlide(){
+    if(this.currentSlideIndex > 1) {
       this.currentSlideIndex--;
     }
   }
   
   addSlide(e) {
-    const element = e.detail.value
+    const element = e.detail;
     const slide = {
-      number: element.slideNumber,
+      number: element.slidenumber,
       element: element,
     }
     this.slides = [...this.slides, slide];

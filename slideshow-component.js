@@ -19,14 +19,14 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
   
   constructor() {
     super();
-    this.slideNumber = null;
+    this.slidenumber = null;
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      slideNumber: { type: Array }
+      slidenumber: { type: Number }
     };
   }
   
@@ -72,8 +72,7 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
     }
-
-    this.dispatchEvent(new CustomEvent('slide-added', {
+    this.dispatchEvent(new CustomEvent('add-slide', {
       bubbles: true,
       composed: true,
       detail: {
