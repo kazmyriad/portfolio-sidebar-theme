@@ -43,24 +43,39 @@ export class Slideshow extends DDDSuper(LitElement) {
       }
 
       .container{
-        width: 1000px;
-        
+        width: 100%;
+        justify-self: center;
       }
 
       .prev, .next {
-        
-        background-color: blue;
-      }
-      
-      .debugging{
-        background-color: blue;
-        width: 500px;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 20px;
+        color: white;
       }
 
-      ::slotted(*){
-        display: none;
-      } //???? do I need to shadowRoot query the slotted elements to change their display
-     
+      .slides{
+        animation-name: fade;
+        animation-duration: 1.5s;
+        display: block;
+      }
+
+      .buttons{
+        justify-content: center;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+      }
+
+      span{
+        position: absolute;
+        margin: 10px;
+        font-size: 20px;
+        padding: 5px;
+        background-color: black;
+        border-radius: 20%;
+      }
+    
     `];
   }
 
@@ -68,46 +83,70 @@ export class Slideshow extends DDDSuper(LitElement) {
   render() {
     return html`
     <div class="container">
-     <div class="debugging">
-      <a class="prev" @click="${this.incrementSlide}"><button>up</button></a>
-      <a class="next" @click="${this.decrementSlide}"><button>down</button></a> 
-      <!-- buttons are not showing up at all -->
-       <!-- Once I get to to appear, implement function logic -->
-      <p>Current Slide: ${this.currentSlideIndex}</p>
-      <p>Number of Slides: ${this.slides.length}</p>
-      </div>
-      <div>
+      <div class="slides">
+        <span>${this.currentSlideIndex + 1} / ${this.slides.length}</span>
         <slot></slot>
       </div>
-     </div>
+      <div class="buttons">
+        <a class="prev" @click="${this.decrementSlide}"><button>&#10094;</button></a>
+        <a class="next" @click="${this.incrementSlide}"><button>&#10095;</button></a> 
+      </div>
+    </div>
+    
       `;
   }
 
   // need functions for:
-  // 1.) Incrementing/Decrementing currentSlideIndex
   // 2.) when slideNumber = currentSlideIndex, set display = showing or all others to none
   // 3.) onclick? for buttons to increment/decrement currentSlideNumber
 
+  firstUpdated() {
+    super.firstUpdated?.();
+    this.updateSlideVisibility();
+  }
+  
+ 
   incrementSlide(){
-    if(this.currentSlideIndex < this.slides.length) {
+    if(this.currentSlideIndex < this.slides.length -1) {
       this.currentSlideIndex++;
     }
+    else{
+      this.currentSlideIndex = 0;
+    }
+
+    this.updateSlideVisibility();
   }
 
   decrementSlide(){
-    if(this.currentSlideIndex > 1) {
+    if(this.currentSlideIndex >= 1) {
       this.currentSlideIndex--;
     }
+    else{
+      this.currentSlideIndex = this.slides.length - 1;
+    }
+
+    this.updateSlideVisibility();
   }
   
   addSlide(e) {
     const element = e.detail;
     const slide = {
-      number: element.slidenumber,
+      number: element.slideNumber,
       element: element,
     }
     this.slides = [...this.slides, slide];
   }
+
+  updateSlideVisibility() {
+    const slot = this.shadowRoot.querySelector('slot');
+    // if (!slot) return; 
+  
+    const slides = slot.assignedElements(); 
+    slides.forEach((slide, index) => {
+      slide.style.display = index === this.currentSlideIndex ? 'block' : 'none';
+    });
+  }
+  
 
 }
 

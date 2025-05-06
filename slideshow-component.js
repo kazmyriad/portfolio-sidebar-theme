@@ -20,13 +20,16 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.slidenumber = null;
+    this.image = "";
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      slidenumber: { type: Number }
+      slidenumber: { type: Number },
+      image:{ type: String },
+      title: { type: String }
     };
   }
   
@@ -35,24 +38,43 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
     return [super.styles,
     css`
       :host {
-        width: 100px;
-        height: 100%;
-        
+        width: 100%;
+        display: none;
+      }
+
+      .slide{
+       display: flex;
+       height: 400px;
       }
       
       .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8pxs;
-        bottom: 8px;
-        width: 100%;
+        color: white;
+        font-size: 20px;
         text-align: center;
+      }
+      
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      h1{
+        font-size: 25px;
+        margin-top: 5px;
       }
 
       img{
-        width: 70%;
-        float: left;
+        width: 600px;
+        object-fit: cover;
+        height: 100%;
+        margin-right: 20px;
+
       }
+
+      @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+        }   
 
           
     `];
@@ -61,9 +83,17 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
 
   render() {
     return html`
-    <div class="slide">
-      <img src="https://file.garden/Zea8jho9KEiz9frQ/School/Screenshot%202025-05-06%20145438.png">
-      <div class="text">Blah balhsbsfjb fs florem ipsulendbhg</div>
+    <div class="slide fade">
+     
+      <div class="picture">
+        <img src="${this.image}">
+      </div>
+
+      <div class="text">
+        <h1>${this.title}</h1>
+        <slot></slot>
+      </div>
+
     </div>
       `;
   }
