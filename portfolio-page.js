@@ -21,7 +21,6 @@ export class PortfolioPage extends DDDSuper(LitElement) {
     super();
     this.title="";
     this.pagenumber=null;
-    this.hex="";
   }
 
   // Lit reactive properties
@@ -30,7 +29,6 @@ export class PortfolioPage extends DDDSuper(LitElement) {
       ...super.properties,
       title: { type: String },
       pagenumber: { type: Number },
-      hex: { type: String }
     };
   }
   

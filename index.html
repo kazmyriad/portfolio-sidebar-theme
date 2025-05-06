@@ -139,7 +139,7 @@
 <script type="module" src="portfolio-sidebar-theme.js"></script>
 <script type="module" src="portfolio-page.js"></script>
 <script type="module" src="slideshow-component.js"></script>
-<script type="module" src="slideshow-.js"></script>
+<script type="module" src="slideshow.js"></script>
 
 <body>
   <portfolio-sidebar-theme>
@@ -168,7 +168,10 @@
     </portfolio-page>
 
     <portfolio-page title="Projects" pagenumber="2" data-primary="13">
-      <slideshow-component></slideshow-component>
+      <slideshow>
+        <slideshow-component slideNumber="1"></slideshow-component>
+        
+      </slideshow>
     </portfolio-page>
 
     <portfolio-page title="Artwork" pagenumber="3" data-primary="14">

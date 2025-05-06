@@ -19,14 +19,14 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
   
   constructor() {
     super();
-    
+    this.slideNumber = null;
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-     
+      slideNumber: { type: Array }
     };
   }
   
@@ -35,10 +35,26 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
     return [super.styles,
     css`
       :host {
-       
+        width: 100px;
+        height: 100%;
+        
       }
-    
-     
+      
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8pxs;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      img{
+        width: 70%;
+        float: left;
+      }
+
+          
     `];
   }
 
@@ -46,12 +62,27 @@ export class SlideshowComponent extends DDDSuper(LitElement) {
   render() {
     return html`
     <div class="slide">
-      <div class="numbertext">1 / 3</div>
-      <img src="img1.jpg" style="width:100%">
-      <div class="text">Caption Text</div>
+      <img src="https://file.garden/Zea8jho9KEiz9frQ/School/Screenshot%202025-05-06%20145438.png">
+      <div class="text">Blah balhsbsfjb fs florem ipsulendbhg</div>
     </div>
       `;
   }
+
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
+
+    this.dispatchEvent(new CustomEvent('slide-added', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        value: this
+      }
+    }))
+  }
 }
+
+
 
 globalThis.customElements.define(SlideshowComponent.tag, SlideshowComponent);
