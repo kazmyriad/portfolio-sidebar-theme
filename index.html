@@ -57,16 +57,77 @@
       margin-right:30px;
     }
 
+    .icons{
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 20px;
+      float:left;
+    }
+
+    .contact{
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 10px;
+      float:left;
+    }
+
+    .contactText{
+      height: auto;
+      font-size: 25px;
+    }
+
+    .body{
+      margin-top: 100px;
+    }
+
+    .introPic{
+        width: 400px;
+        height: 400px;
+        justify-self: center;
+        margin-right: 20px;
+        object-fit: cover;
+        border-radius: 100%;
+      }
+
+      .bodytext{
+        font-size: 25px; display:flex; justify-content: center; height: 100%; align-items: center;
+      }
+
     @media screen and (max-width: 720px) {
       
-      img{
-        width: 200px;
-        height:200px;
-        justify-self: center;
-        float: none;
+      .introPic{
+        width: 300px;
+        height:300px;
+      }
+
+      .body{
+        margin-top: 0px;
+      }
+
+      p{
+        font-size: 20px;
+      }
+
+      strong{
+        font-size: 20px;
       }
       .artContainer{
-        height: 250px;
+        height: 180px;
+        float: none;
+      }
+
+      .artContent{
+        width: 40%;
+      }
+
+      .pictures{
+        height: 160px;
       }
     }
 
@@ -77,31 +138,37 @@
 
 <script type="module" src="portfolio-sidebar-theme.js"></script>
 <script type="module" src="portfolio-page.js"></script>
+<script type="module" src="slideshow-component.js"></script>
+<script type="module" src="slideshow-.js"></script>
+
 <body>
   <portfolio-sidebar-theme>
     <portfolio-page title="About me" pagenumber="1" data-primary="14">
-      <div>
-        <img src="https://file.garden/Zea8jho9KEiz9frQ/20241021_154531.jpg" alt="" style=" margin: 20px; width: 400px; height: 400px; object-fit: cover; float:left; border-radius:100%">
-        <p>My name is Alyssa and I'm a second year student pursuing a degree in Human Centered Design and Development, which a concentration in healthcare. I'm also minoring in Health
-        Policy Administration and Information Sciences.
-        </p>
-        <p>
-        I've been on the Dean's List Fall and Spring 2024, and I am projected to graduate May, 2027. I'm really passionate
-        about the intersection of healthcare and information sciences. Beyond that, I really enjoy front-end development 
-        and visual design! I do graphic design and art in my free time.
-        </p>
-
+      <div class="bodytext">
+        <img class="introPic" src="https://file.garden/Zea8jho9KEiz9frQ/School/20241021_154531.jpg" alt="">
+        <div class = "body">
+          <p>My name is Alyssa and I'm a second year student pursuing a degree in Human Centered Design and Development, with a concentration in healthcare. I'm also minoring in Health
+            Policy Administration and Information Sciences.
+            </p>
+            <p>
+            I've been on the Dean's List Fall and Spring 2024, and I am projected to graduate May, 2027. I'm really passionate
+            about the intersection of healthcare and information sciences. Beyond that, I really enjoy front-end development 
+            and visual design! I do graphic design and art in my free time.
+            </p> <div style="height: 100px; display: flex; justify-content: center;">
+          <a href="https://github.com/kazmyriad" title="Github">
+            <img class ="icons" src="https://imgs.search.brave.com/JIWI2OX3MrvbWrLicf4HNLrFznNccOMt8pOTJhdKTM8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuZHJ5aWNvbnMu/Y29tL3VwbG9hZHMv/aWNvbi9zdmcvODMx/Mi9jYzMzMjQ4YS1l/NTZlLTRlN2YtOTNm/NC0wZTE2MzUwZTU3/Njguc3Zn" alt="" title="Github">
+          </a>
+          <a href="https://www.linkedin.com/in/alyssa-foran-195a85331/" title="LinkedIn">
+            <img class ="icons" src="https://imgs.search.brave.com/MxuRH1_QVvtKWUwyyWG10dZOiCUaPNj-gFriwc1xOwU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4LzEyLzI0Lzkz/LzM2MF9GXzgxMjI0/OTMyNV9QRnFRUTE0/ZWpZbHVCcmJXSnd2/TG90VXd0RWVCMzJI/VS5qcGc" alt="" title = "LinkedIn">
+          </a>
+          </div>
+        </div>
+       
       </div>
     </portfolio-page>
 
     <portfolio-page title="Projects" pagenumber="2" data-primary="13">
-      <p>IST 256</p>
-      <p>RPG Contributors</p>
-      <p>DDD card list? Is it worth it</p>
-      <p>This website</p>
-     
-      <p>HCDD</p>
-      <p>Children's website</p>
+      <slideshow-component></slideshow-component>
     </portfolio-page>
 
     <portfolio-page title="Artwork" pagenumber="3" data-primary="14">
@@ -167,8 +234,36 @@
     </portfolio-page>
     
     <portfolio-page title="Contact" pagenumber="5" data-primary="14">
-      <iframe title="myframe" src="https://docs.google.com/forms/d/e/1FAIpQLScedEPt_0con6I8B3cXxJ3YOb7sIaBaIWVUfenQF7rJJQNc2Q/viewform?embedded=true" style="width: 300px; height: 300px; display:block; margin: auto; border-radius: 100%;">Loading…</iframe>
-    </portfolio-page>
+        <div>
+          <div style="display:block; text-align: center; float: left; margin-right: 20px; justify-items: center;">
+            <strong>Contact Form</strong>
+            <iframe class="myFrame" title="myframe" src="https://docs.google.com/forms/d/e/1FAIpQLScedEPt_0con6I8B3cXxJ3YOb7sIaBaIWVUfenQF7rJJQNc2Q/viewform?embedded=true" style="width: 500px; height: 500px; border-radius: 100%; background-color: white;">Loading…</iframe>
+          </div> 
+          <div style="display:block; margin: 20px; justify-content: center;">
+            <p>Please use the Contact Form listed for any questions or inquiries. Thank you for reviewing my portfolio.</p>
+           <div style="display:flex;">
+            <img class ="contact" src="https://imgs.search.brave.com/PedVN4LAh7EqzYB5gAEUPfiH02VCnb-tGL_FdfWBE6Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYXJr/ZXRwbGFjZS5jYW52/YS5jb20vcVNuM0Ev/TUFEUTFmcVNuM0Ev/Mi90bC9jYW52YS1t/YWlsLWljb24tTUFE/UTFmcVNuM0EucG5n" alt="" title = "Email">
+            <p class="contactText">alyssaforan52@gmail.com</p>
+           </div>     
+           <div style="display:flex;">
+            <img class ="contact" src="https://imgs.search.brave.com/PedVN4LAh7EqzYB5gAEUPfiH02VCnb-tGL_FdfWBE6Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYXJr/ZXRwbGFjZS5jYW52/YS5jb20vcVNuM0Ev/TUFEUTFmcVNuM0Ev/Mi90bC9jYW52YS1t/YWlsLWljb24tTUFE/UTFmcVNuM0EucG5n" alt="" title = "Alt. Email">
+            <p class="contactText">amf7248@psu.edu</p>
+           </div>   
+           <div style="display:flex;">
+            <img class ="contact" src="https://imgs.search.brave.com/8kjnE7AWLm6ThpAZ4GzB2XGOGOz1jgJMtYzRYM9uuQA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA2Lzg3Lzc0Lzcx/LzM2MF9GXzY4Nzc0/NzEwMl83OXE5dnR1/ckRDcW42SmlWd3Jy/bmJxVEpUdDRBWWNW/VS5qcGc" alt="" title = "Phone">
+            <p class="contactText">(570) 242-7078</p>
+           </div>    
+           <div style="height: 100px; display: flex; justify-content: center;">
+            <a href="https://github.com/kazmyriad" title="Github">
+              <img class ="icons" src="https://imgs.search.brave.com/JIWI2OX3MrvbWrLicf4HNLrFznNccOMt8pOTJhdKTM8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuZHJ5aWNvbnMu/Y29tL3VwbG9hZHMv/aWNvbi9zdmcvODMx/Mi9jYzMzMjQ4YS1l/NTZlLTRlN2YtOTNm/NC0wZTE2MzUwZTU3/Njguc3Zn" alt="" title="Github">
+            </a>
+            <a href="https://www.linkedin.com/in/alyssa-foran-195a85331/" title="LinkedIn">
+              <img class ="icons" src="https://imgs.search.brave.com/MxuRH1_QVvtKWUwyyWG10dZOiCUaPNj-gFriwc1xOwU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4LzEyLzI0Lzkz/LzM2MF9GXzgxMjI0/OTMyNV9QRnFRUTE0/ZWpZbHVCcmJXSnd2/TG90VXd0RWVCMzJI/VS5qcGc" alt="" title = "LinkedIn">
+            </a>
+            </div>
+          </div>
+      </div>
+      </portfolio-page>
 
   </portfolio-sidebar-theme>
 </body>
