@@ -135,12 +135,6 @@
   
 </head>
 
-
-<script type="module" src="portfolio-sidebar-theme.js"></script>
-<script type="module" src="portfolio-page.js"></script>
-<script type="module" src="slideshow-component.js"></script>
-<script type="module" src="slideshow.js"></script>
-
 <body>
   <portfolio-sidebar-theme>
     <portfolio-page title="About me" pagenumber="1" data-primary="14">
@@ -169,10 +163,17 @@
     </portfolio-page>
 
     <portfolio-page title="Projects" pagenumber="2" data-primary="13">
-      <slideshow>
-        <slideshow-component slideNumber="1"></slideshow-component>
-        
-      </slideshow>
+      <slide-show>
+        <slideshow-component slidenumber="1">
+          <img class ="icons" src="https://imgs.search.brave.com/MxuRH1_QVvtKWUwyyWG10dZOiCUaPNj-gFriwc1xOwU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4LzEyLzI0Lzkz/LzM2MF9GXzgxMjI0/OTMyNV9QRnFRUTE0/ZWpZbHVCcmJXSnd2/TG90VXd0RWVCMzJI/VS5qcGc" alt="" title = "LinkedIn">
+        </slideshow-component>
+        <slideshow-component slidenumber="2">
+          <img class ="icons" src="https://imgs.search.brave.com/MxuRH1_QVvtKWUwyyWG10dZOiCUaPNj-gFriwc1xOwU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4LzEyLzI0Lzkz/LzM2MF9GXzgxMjI0/OTMyNV9QRnFRUTE0/ZWpZbHVCcmJXSnd2/TG90VXd0RWVCMzJI/VS5qcGc" alt="" title = "LinkedIn">
+        </slideshow-component>
+        <slideshow-component slidenumber="3">
+          <img class ="icons" src="https://imgs.search.brave.com/MxuRH1_QVvtKWUwyyWG10dZOiCUaPNj-gFriwc1xOwU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4LzEyLzI0Lzkz/LzM2MF9GXzgxMjI0/OTMyNV9QRnFRUTE0/ZWpZbHVCcmJXSnd2/TG90VXd0RWVCMzJI/VS5qcGc" alt="" title = "LinkedIn">
+        </slideshow-component>
+      </slide-show>
     </portfolio-page>
 
     <portfolio-page title="Artwork" pagenumber="3" data-primary="14">
@@ -270,5 +271,10 @@
       </portfolio-page>
 
   </portfolio-sidebar-theme>
+
+<script type="module" src="portfolio-sidebar-theme.js"></script>
+<script type="module" src="slideshow.js"></script>
+<script type="module" src="slideshow-component.js"></script>
+<script type="module" src="portfolio-page.js"></script>
 </body>
 </html>
