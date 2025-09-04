@@ -52,7 +52,7 @@ export class PortfolioSidebarTheme extends DDDSuper(LitElement) {
         top: 0;
         bottom:0;
         left: 0;
-        color: var(--portfolio-sidebar-color, white);
+        color: var(--portfolio-sidebar-color, --ddd-theme-default-white);
       }
 
       .wrapper {
